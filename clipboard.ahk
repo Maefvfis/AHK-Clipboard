@@ -8,7 +8,7 @@ loop
 	try {
 		MyClipboard := clipboard
 	} catch e {
-		MsgBox FEHLER
+		MsgBox error
 		continue
 	}
 	
