@@ -1,6 +1,7 @@
+#persistent
+
 OnError("LogError")
 
-Gui MyGui:New
 Gui MyGui:Add, Text, vMyEdit h800 w400.
 Gui MyGui:Show, w400 h800, Mein Fenster
 
@@ -75,10 +76,19 @@ loop
 {
 	sleep 50
 	; Text from Clipboard
+	clipboard := ""
+	
+	ClipWait
+	if ErrorLevel
+	{
+		MsgBox FEHLER1
+		continue
+	}
+	
 	try {
 		MyClipboard := clipboard
 	} catch e {
-		MsgBox FEHLER
+		MsgBox FEHLER2
 		continue
 	}
 	
